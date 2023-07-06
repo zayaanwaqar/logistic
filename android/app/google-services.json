@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "632414054418",
+    "project_id": "logistic-app-a6120",
+    "storage_bucket": "logistic-app-a6120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632414054418:android:68d262c6824c989a40d0cb",
+        "android_client_info": {
+          "package_name": "com.example.logistic_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632414054418-rgkj94f9kftgnciom78r12ldrlbgco7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_KN3to8kiXKhlFUcqeRiKcOJpJVaZNzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632414054418-rgkj94f9kftgnciom78r12ldrlbgco7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
