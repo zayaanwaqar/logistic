@@ -5,6 +5,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:logistic_app/Authentication/Loader_info.dart';
 import 'package:logistic_app/globalfolder/global.dart';
 import 'package:logistic_app/widgets/progress_dialog.dart';
+
+import 'login.dart';
 //import 'package:payload/Authentications/Loader_info.dart';
 
 class signup_page extends StatefulWidget {
@@ -21,7 +23,7 @@ class _signup_pageState extends State<signup_page> {
   TextEditingController passwordtextEditingController = TextEditingController();
   validateForm() {
     if (nametextEditingController.text.length < 3) {
-      Fluttertoast.showToast(msg: "Name Must be At leat 4 characters");
+      Fluttertoast.showToast(msg: "Name Must be At leat 3 characters");
     } else if (!emailtextEditingController.text.contains("@")) {
       Fluttertoast.showToast(msg: "Email must have @ and cannot empty");
     } else if (phonetextEditingController.text.isEmpty) {
@@ -56,8 +58,7 @@ class _signup_pageState extends State<signup_page> {
       Fluttertoast.showToast(msg: "Error: " + msg.toString());
     }
     )
-    )
-        .user;
+    ).user;
 
     if (firebaseUser != null) {
       Map driverMap = {
@@ -255,6 +256,12 @@ class _signup_pageState extends State<signup_page> {
                   ),
                 ],
               ),
+               SizedBox(height: 10,),
+                  ElevatedButton(
+                    onPressed:() {
+                      Navigator.push(context, MaterialPageRoute(builder: (c) => login_page()));
+                    }, child: Text("If you dont have account Lohin here"),
+                    ),
             ],
           ),
         ),

@@ -18,10 +18,16 @@ class _Loader_infoState extends State<Loader_info> {
   //TextEditingController passwordtextEditingController = TextEditingController();
 
   List<String> truckTypeList = [
-    "Small_truck",
-    "Big_truck_15ft",
-    "Big_truck_20ft",
-    "small_pickup",
+    "1 Trucks",
+    "2 Trucks",
+    "3 Trucks",
+    "4 Trucks",
+    "5 trucks",
+    "6 Trucks",
+    "7 Trucks",
+    "8 Trucks",
+    "9 Trucks",
+    "10 Trucks",
   ];
   String? selectedTruckType;
 
@@ -129,7 +135,7 @@ class _Loader_infoState extends State<Loader_info> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: colortextEditingController,
-                  keyboardType: TextInputType.phone,
+                  keyboardType: TextInputType.emailAddress,
                   style: TextStyle(color: Colors.grey),
                   decoration: InputDecoration(
                     hintText: "Enter Truck color",

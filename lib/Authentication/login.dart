@@ -177,7 +177,7 @@ class _login_pageState extends State<login_page> {
                 children: [
                   Container(
                     child: Text(
-                      "Create Account",
+                      "Login Account",
                       style: TextStyle(
                         color: Colors.greenAccent,
                         fontSize: 20,

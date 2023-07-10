@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:logistic_app/tabpages/earning.dart';
-import 'package:logistic_app/tabpages/home.dart';
+//import 'package:logistic_app/tabpages/home.dart';
 import 'package:logistic_app/tabpages/profile.dart';
 import 'package:logistic_app/tabpages/rating.dart';
+
+import '../tabpages/home.dart';
 // import 'package:payload/tabpages/earning_tab.dart';
 // import 'package:payload/tabpages/home_tab.dart';
 // import 'package:payload/tabpages/profile_tab.dart';
@@ -39,7 +41,10 @@ class _MainScreenState extends State<MainScreen>
         physics: NeverScrollableScrollPhysics(),
         controller: tabController,
         children: [
-          home_tab(),
+          home_tab(
+            clientName: "",
+            requestDetails: "",
+          ),
           earning_tab(
             totalEarnings: 200,
             monthlyEarnings: [],
