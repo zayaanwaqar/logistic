@@ -94,7 +94,7 @@ class _signup_pageState extends State<signup_page> {
               SizedBox(
                 height: 10,
               ),
-              Image.asset("assets/images/cargo.jpg"),
+              Image.asset("assets/images/sha.jpg"),
               SizedBox(
                 height: 20,
               ),
