@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:logistic_app/Authentication/signup.dart';
 import 'package:logistic_app/mainscreens/main_screen.dart';
+import 'package:logistic_app/models/constants.dart';
 import 'package:logistic_app/splashscreen/splash_screen.dart';
 
 import '../globalfolder/global.dart';
 import '../widgets/progress_dialog.dart';
 import 'Loader_info.dart';
+
 //import 'package:payload/mainscreens/main_screen.dart';
 //import 'package:payload/tabpages/home_tab.dart';
 
@@ -80,7 +82,7 @@ class _login_pageState extends State<login_page> {
       currentfirebaseUser = firebaseUser;
       // Navigator.pop(context, MaterialPageRoute(builder: (c) => Loader_info()));
       Fluttertoast.showToast(msg: "Login Succefu");
-
+      Constants.driverEmail = emailtextEditingController.text;
       Navigator.push(context, MaterialPageRoute(builder: (c) => MySplash()));
     } else {
       Navigator.pop(context);
@@ -194,7 +196,6 @@ class _login_pageState extends State<login_page> {
                         color: Colors.black,
                       ),
                       onPressed: () => {
-
                         validateForm(),
                         // Navigator.push(
                         //   context,
@@ -207,12 +208,16 @@ class _login_pageState extends State<login_page> {
                   ),
                 ],
               ),
-               SizedBox(height: 10,),
-                  ElevatedButton(
-                    onPressed:() {
-                      Navigator.push(context, MaterialPageRoute(builder: (c) => signup_page()));
-                    }, child: Text("If you dont have account Sign up here"),
-                    ),
+              SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => signup_page()));
+                },
+                child: Text("If you dont have account Sign up here"),
+              ),
             ],
           ),
         ),

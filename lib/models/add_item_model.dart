@@ -8,6 +8,10 @@ class AddItemModel {
   final String date;
   final String payment;
   final String email;
+  final String is_accepted;
+  final String driverName;
+  final String truckNumber;
+  final String truckColor;
 
   AddItemModel({
     this.id = '',
@@ -19,6 +23,10 @@ class AddItemModel {
     required this.date,
     required this.payment,
     required this.email,
+    required this.is_accepted,
+    required this.driverName,
+    required this.truckNumber,
+    required this.truckColor,
   });
 
   Map<String, dynamic> toJson() {
@@ -32,6 +40,10 @@ class AddItemModel {
     data['date'] = date;
     data['payment'] = payment;
     data['email'] = email;
+    data['is_accepted'] = is_accepted;
+    data['driverName'] = driverName;
+    data['truckNumber'] = truckNumber;
+    data['truckColor'] = truckColor;
     return data;
   }
 
@@ -45,5 +57,9 @@ class AddItemModel {
     date: json['date'],
     payment: json['payment'],
     email: json['email'],
+    is_accepted: json['is_accepted'],
+    driverName: json['driverName'],
+    truckNumber: json['truckNumber'],
+    truckColor: json['truckColor'],
   );
 }

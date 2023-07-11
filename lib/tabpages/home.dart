@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../models/add_item_model.dart';
+import '../models/constants.dart';
 
 class home_tab extends StatelessWidget {
   final String clientName;
@@ -21,6 +22,12 @@ class home_tab extends StatelessWidget {
 
   Future<void> delete(String productId) async {
     await products.doc(productId).delete();
+  }
+
+  Future<void> update([DocumentSnapshot? documentSnapshot]) async {
+    if (documentSnapshot != null) {
+      // documentSnapshot['email'] = 'abc';
+    }
   }
 
   @override
@@ -55,39 +62,56 @@ class home_tab extends StatelessWidget {
                         itemBuilder: (context, index) {
                           final DocumentSnapshot documentSnapshot =
                               streamSnapshot.data!.docs[index];
-                          return Container(
-                            width: 150,
-                            color: Colors.white,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SizedBox(height: 12),
-                                    Text(documentSnapshot['email']),
-                                    const SizedBox(height: 3),
-                                    Text(documentSnapshot['selectedSize']),
-                                    const SizedBox(height: 3),
-                                    Text(documentSnapshot['noOfTrucks']),
-                                    const SizedBox(height: 20),
-                                  ],
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    delete(documentSnapshot.id);
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(const SnackBar(
-                                      backgroundColor: Colors.green,
-                                      content: Text("Request Accepted"),
-                                    ));
-                                  },
-                                  child: Text('Accept'),
-                                ),
-                              ],
-                            ),
-                          );
+                          return documentSnapshot['is_accepted'] == 'yes'
+                              ? const SizedBox.shrink()
+                              : Container(
+                                  width: 150,
+                                  color: Colors.white,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const SizedBox(height: 12),
+                                          Text(documentSnapshot['email']),
+                                          const SizedBox(height: 3),
+                                          Text(
+                                              documentSnapshot['selectedSize']),
+                                          const SizedBox(height: 3),
+                                          Text(documentSnapshot['noOfTrucks']),
+                                          const SizedBox(height: 20),
+                                        ],
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          products
+                                              .doc(documentSnapshot!.id)
+                                              .update(
+                                            {
+                                              "driverName":
+                                                  Constants.driverEmail,
+                                              "truckColor": 'Silver',
+                                              "truckNumber": 'Leu 123',
+                                              "is_accepted": 'yes'
+                                            },
+                                          );
+                                          // delete(documentSnapshot.id);
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                            backgroundColor: Colors.green,
+                                            content: Text("Request Accepted"),
+                                          ));
+                                        },
+                                        child: Text('Accept'),
+                                      ),
+                                    ],
+                                  ),
+                                );
                           //   Card(
                           //   margin: const EdgeInsets.all(10),
                           //   child:
